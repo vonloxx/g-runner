@@ -1,0 +1,38 @@
+{
+  "name": "G-Runner",
+  "version": "0.0.1",
+  "description": "A 2D canvas game made for Js13kGames competition. Engine based on OX platform by Otto Robba.",
+  "main": "src/engine/core.js",
+  "scripts": {
+    "start": "npm run server & npm run watch & npm run watchify",
+    "watch": "npm run watchImageAssets & npm run watchDataAssets & npm run watchEntities & npm run watchScenes & npm run watchAudioAssets",
+    "watchAssets": "npm run watchImageAssets & npm run watchDataAssets",
+    "watchImageAssets": "watch --no-title ./src/tools/assetsWatcher.js ./images",
+    "watchDataAssets": "watch --no-title ./src/tools/assetsWatcher.js ./data",
+    "watchAudioAssets": "watch --no-title ./src/tools/assetsWatcher.js ./audio",
+    "watchEntities": "watch --no-title ./src/tools/entitiesWatcher.js ./src/entities",
+    "watchScenes": "watch --no-title ./src/tools/scenesWatcher.js ./src/scenes",
+    "assets": "./src/tools/assetsWatcher.js",
+    "entities": "./src/tools/entitiesWatcher.js",
+    "scenes": "./src/tools/scenesWatcher.js",
+    "dist": "./src/tools/buildDist.js",
+    "server": "browser-sync start --server --files './ox.js'",
+    "watchify": "watchify src/engine/core.js -o ./ox.js -v -d",
+    "build": "browserify src/engine/core.js -o ./ox.js",
+    "deploy": "npm run assets && npm run scenes && npm run entities && npm run build && uglifyjs ./ox.js -mc -o game.js && npm run dist"
+  },
+  "author": "Marco Fernandes",
+  "license": "MIT",
+  "devDependencies": {
+    "archiver": "^0.15.0",
+    "browser-sync": "^2.6.1",
+    "browserify": "^9.0.8",
+    "fs": "0.0.2",
+    "fs-extra": "^0.24.0",
+    "node-zip": "^1.1.1",
+    "uglify-js": "^2.4.20",
+    "watch": "^0.16.0",
+    "watchify": "^3.1.0"
+  },
+  "dependencies": {}
+}
