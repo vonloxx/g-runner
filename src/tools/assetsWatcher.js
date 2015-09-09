@@ -8,6 +8,4 @@ var fs = require('fs'),
 
 fileCheck('assets.js');
 traverse('./images', ['png', 'jpg', 'gif'], list);
-//traverse('./data', ['json'], list);
-//traverse('./audio', ['mp3', 'ogg'], list);
 writeToFile('assets', [], list);

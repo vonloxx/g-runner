@@ -3,8 +3,6 @@ window.onload = function () {
         canvas: require('./canvas').canvas,
         context: require('./canvas'),
         images: require('./loader').images,
-        audio: require('./loader').audio,
-        data: require('./loader').data,
         keyboard: require('./keyboard'),
         mouse: require('./mouse'),
         scenes: require('./scenesManager'),
